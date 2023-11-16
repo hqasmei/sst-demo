@@ -7,7 +7,10 @@ export function Default({ stack }: StackContext) {
 
   const site = new NextjsSite(stack, "site", {
     path: "packages/web",
-    bind: [ NEXTAUTH_SECRET, GITHUB_ID, GITHUB_SECRET],
+    bind: [NEXTAUTH_SECRET, GITHUB_ID, GITHUB_SECRET],
+    environment: {
+      NEXTAUTH_URL: "https://dx88k2g38hfhq.cloudfront.net",
+    },
   });
   stack.addOutputs({
     SiteUrl: site.url,
